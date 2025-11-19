@@ -2,4 +2,6 @@ The 12 buttons on the controller are the a useful and onvienient part of the com
 
 The buttons will mainly take a backseat to the microphone, acting as sort of a second fiddle, mainly for slow, low stress uses.
 
-The buttons will be large in size, so people with limited dexterity (like our patient)
+The buttons will be large in size, so people with limited dexterity (like our patient) can easily use it. 
+
+The size alos benifits amputees thanks to the
