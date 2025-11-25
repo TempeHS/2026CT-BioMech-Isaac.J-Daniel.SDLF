@@ -11,12 +11,14 @@ bool blinkOn = false;
 
 void setup() {
   Serial.begin(9600);
+  ledSetup();
   pinMode(lightPin, INPUT);
   u8g2.begin();
   u8g2.setFont(u8g2_font_ncenB14_tr);
 }
 
 void loop() {
+  ledLoop();
   int raw = analogRead(lightPin); // 0-16383 on R4
   Serial.print("light raw: ");
   Serial.println(raw);
