@@ -5,7 +5,7 @@
 U8G2_SSD1306_128X64_NONAME_F_HW_I2C display(U8G2_R0, /* reset=*/ U8X8_PIN_NONE);
 const int BATTERY_PIN = A0; // Analog pin for battery voltage
 
-void setup() {
+void ledSetup() {
   Serial.begin(9600);
   display.begin();
 
@@ -20,7 +20,7 @@ void setup() {
   display.clearDisplay(); // Clear after welcome
 }
 
-void loop() {
+void ledLoop() {
   // Example: Show battery and Bluetooth status
   int raw = analogRead(BATTERY_PIN); // 0-16383 (R4 WiFi)
   float voltage = raw * (5.0 / 16383.0); // Adjust divider math as needed
