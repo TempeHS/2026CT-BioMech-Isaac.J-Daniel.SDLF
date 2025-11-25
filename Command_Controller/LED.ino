@@ -11,11 +11,11 @@ void ledSetup() {
 
   // Powering on screen
   display.clearBuffer();
-  display.setFont(u8g2_font_ncenB08_tr);
+  display.setFont(u8g2_font_fub25_tr);
   display.drawStr(0, 20, "Powering on...");
   display.drawStr(0, 40, "Welcome!");
   display.sendBuffer();
-  delay(2000); // Show welcome for 2 seconds
+  delay(10000); // Show welcome for 10 seconds
 
   display.clearDisplay(); // Clear after welcome
 }
