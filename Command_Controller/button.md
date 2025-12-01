@@ -4,4 +4,15 @@ The buttons will mainly take a backseat to the microphone, acting as sort of a s
 
 The buttons will be large in size, so people with limited dexterity (like our patient) can easily use it. 
 
-The size alos benifits amputees thanks to the
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+DOCUMENTAION:
+
+
+
+
+
+
+
+1/12/2025
+Finished my button.ino
