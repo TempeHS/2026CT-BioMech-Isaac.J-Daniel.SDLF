@@ -10,7 +10,7 @@ const unsigned long debounceDelay = 50;
 int lastReading = HIGH;
 int stableReading = HIGH;
 
-void setup() {
+void ledSetup() {
   Serial.begin(9600);
   pinMode(buttonPin, INPUT_PULLUP); 
   pinMode(ledOutPin, OUTPUT);
@@ -20,7 +20,7 @@ void setup() {
   Serial.println(ledActiveHigh ? "true" : "false");
 }
 
-void loop() {
+void ledLoop() {
   int reading = digitalRead(buttonPin); 
 
   if (reading != lastReading) {
