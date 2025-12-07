@@ -10,7 +10,7 @@ const int ACTIVE_PULSE_MS = 150; // ms (for active buzzer)
 int lastState = LOW;
 unsigned long lastTime = 0;
 
-void setup() {
+void micSetup() {
   Serial.begin(9600);
   pinMode(GESTURE_PIN, INPUT); // if sensor is active-low, try INPUT_PULLUP and invert logic below
   pinMode(BUZZER_PIN, OUTPUT);
@@ -18,7 +18,7 @@ void setup() {
   Serial.println("Gesture -> Buzzer test ready. Trigger the sensor on D8.");
 }
 
-void loop() {
+void micLoop() {
   int state = digitalRead(GESTURE_PIN);
 
   if (state != lastState && (millis() - lastTime) > DEBOUNCE_MS) {
