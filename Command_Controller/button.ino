@@ -1,53 +1,33 @@
-#include <Wire.h>
+#include <Arduino.h>
 
-const int ledOutPin = 8;  
-const int buttonPin = 4;    
+const int BUTTON_PIN = 8;
+const int BUZZER_PIN = 4;
 
-const bool ledActiveHigh = false; 
-
-unsigned long lastDebounceMillis = 0;
-const unsigned long debounceDelay = 50;
-int lastReading = HIGH;
-int stableReading = HIGH;
-
-void ledSetup() {
+void buttonSetup() {
   Serial.begin(9600);
-  pinMode(buttonPin, INPUT_PULLUP); 
-  pinMode(ledOutPin, OUTPUT);
-  digitalWrite(ledOutPin, ledActiveHigh ? LOW : HIGH); 
-  Serial.println("Ready - LED while held");
-  Serial.print("ledActiveHigh=");
-  Serial.println(ledActiveHigh ? "true" : "false");
+  pinMode(BUTTON_PIN, INPUT_PULLUP);
+  pinMode(BUZZER_PIN, OUTPUT);
+  digitalWrite(BUZZER_PIN, LOW);
+  
+  Serial.println("=== DIAGNOSTIC START ===");
+  delay(1000);
 }
 
-void ledLoop() {
-  int reading = digitalRead(buttonPin); 
-
-  if (reading != lastReading) {
-    lastDebounceMillis = millis();
-  }
-
-  if (millis() - lastDebounceMillis > debounceDelay) {
-    stableReading = reading;
-  }
-
-  bool wantLedOn = (stableReading == LOW);
-  if (ledActiveHigh) {
-    digitalWrite(ledOutPin, wantLedOn ? HIGH : LOW);
-  } else {
-    digitalWrite(ledOutPin, wantLedOn ? LOW : HIGH);
-  }
-
-  // Debug
-  Serial.print("raw=");
-  Serial.print(reading);
-  Serial.print(" stable=");
-  Serial.print(stableReading);
-  Serial.print(" wantLedOn=");
-  Serial.print(wantLedOn ? "Y" : "N");
-  Serial.print(" led=");
-  Serial.println(digitalRead(ledOutPin) ? "HIGH" : "LOW");
-
-  lastReading = reading;
-  delay(25);
+void buttonLoop() {
+  // Test 1: Read button raw state
+  int buttonRaw = digitalRead(BUTTON_PIN);
+  
+  // Test 2: Force buzzer ON
+  digitalWrite(BUZZER_PIN, HIGH);
+  delay(500);
+  digitalWrite(BUZZER_PIN, LOW);
+  delay(500);
+  
+  // Output every 1 second
+  Serial.print("Button D8: ");
+  Serial.println(buttonRaw == LOW ? "PRESSED" : "NOT PRESSED");
+  Serial.println("Buzzer D4: Should be buzzing for 500ms");
+  Serial.println("---");
+  
+  delay(1000);
 }
