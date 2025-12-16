@@ -27,3 +27,4 @@ u8g2.drawArc(64, 34, 12, 150, 240);
 ,
 ,
 ,
+this code works by creating a large, hollow circle, and then putting two small, coloured in circles for the eyes. Then, a medium sized arc is placed below to create a smiling mouth.
