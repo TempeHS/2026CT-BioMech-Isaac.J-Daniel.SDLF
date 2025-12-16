@@ -14,10 +14,10 @@ void buttonSetup() {
 }
 
 void buttonLoop() {
-  // Test 1: Read button raw state
+
   int buttonRaw = digitalRead(BUTTON_PIN);
   
-  // Test 2: Force buzzer ON
+
   digitalWrite(BUZZER_PIN, HIGH);
   delay(500);
   digitalWrite(BUZZER_PIN, LOW);
